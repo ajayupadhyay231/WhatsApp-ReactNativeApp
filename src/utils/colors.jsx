@@ -12,7 +12,7 @@ const colors = {
     buttonWhite: '#FFFFFF', // Text color for buttons
     lightDivider: '#E5E5E5', // Color for divider lines
     lightBlue: '#25D366', // Accent color for special elements
-    charcoal: "#262D36", // for home top header and tab bar 
+    charcoal: "#32445B", // for home top header and tab bar 
     darkCharcol: "#141D25" // for chats etc screen background
   };
   
