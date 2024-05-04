@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Header from '../components/Header'
-import BottomTabNavigator from '../navigation/BottomTabNavigator'
-import colors from '../utils/colors'
+import Header from '../../components/Header'
+import BottomTabNavigator from '../../navigation/BottomTabNavigator'
+import colors from '../../utils/colors'
 
-const HomeScreen = () => {
+const BottomTabsScreen = () => {
   return (
     <View style={styles.mainContainer}>
         <Header></Header>
@@ -13,7 +13,7 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default BottomTabsScreen
 
 const styles = StyleSheet.create({
   mainContainer: {
