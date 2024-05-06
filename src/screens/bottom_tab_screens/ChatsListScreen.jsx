@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ChatListItem from '../../components/ChatListItem'
-import chatsListData from '../../data/chatsData'
+import chatsListData from '../../data/chatsListData'
 import colors from '../../utils/colors'
 import VectorIcons from '../../utils/VectorIcons'
 import { TouchableOpacity } from 'react-native-gesture-handler'

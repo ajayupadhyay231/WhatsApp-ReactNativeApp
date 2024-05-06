@@ -16,7 +16,7 @@ import Octicons from "react-native-vector-icons/Octicons";
 import Zocial from "react-native-vector-icons/Zocial";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 
-const VectorIcons = ({ type = "AntDesign", name = "xyz", size=25, color, style, onPress }) => {
+const VectorIcons = ({ type = "AntDesign", name = "xyz", size=20, color, style, onPress }) => {
     // Define a map of icon components
     const iconComponents = {
         AntDesign: AntDesign,

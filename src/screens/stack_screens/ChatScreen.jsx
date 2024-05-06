@@ -6,15 +6,18 @@ import ChatFooter from '../../components/ChatFooter'
 
 const ChatScreen = () => {
   return (
-    <View>
+    <View style={styles.mainContainer}>
         <ChatHeader></ChatHeader>
         <ChatBody></ChatBody>
         <ChatFooter></ChatFooter>
-
     </View>
   )
 }
 
 export default ChatScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    mainContainer:{
+        flex:1
+    }
+})

@@ -13,7 +13,9 @@ const colors = {
     lightDivider: '#E5E5E5', // Color for divider lines
     lightBlue: '#25D366', // Accent color for special elements
     charcoal: "#262D36", // for home top header and tab bar 
-    darkCharcol: "#101d25" // for chats etc screen background
+    darkCharcol: "#101d25", // for chats etc screen background
+    lighterCharcoal: "#4A5362"
+
   };
   
   export default colors;
