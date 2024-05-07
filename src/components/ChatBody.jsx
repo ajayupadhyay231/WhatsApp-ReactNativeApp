@@ -6,37 +6,50 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 import colors from '../utils/colors'
 
 const ChatBody = () => {
+
+    const ThisSideUserMessages = ({message, time}) => {
+
+        return (
+            <View style={styles.thisSideMessagesOuterContainer}>
+                <View style={styles.thisSideMessagesInnerContainer}>
+
+                    <Text style={styles.message}>{message}</Text>
+                    <Text style={styles.timeStyle}>{time}</Text>
+                </View>
+            </View>
+        )
+    }
+
+    const OtherSideUserMessages = ({message, time})=>{
+
+        return(
+            <View style={styles.otherSideMessagesOuterContainer}>
+            <View style={styles.otherSideMessagesInnerContainer}>
+                <Text style={styles.message}>{message}</Text>
+                <Text style={styles.timeStyle}>{time}</Text>
+            </View>
+        </View>
+        )
+    }
+
     return (
-        <ImageBackground source={require("../assets/wallpaper.jpeg")} style={styles.imageBackground}>
-            <ScrollView style={styles.scrollViewContainer}>
+        <ImageBackground source={require("../assets/wallpaper.jpeg")} style={styles.imageBackground} >
+            <ScrollView style={styles.scrollViewContainer} contentContainerStyle={{padding:10}}>
                 {
                     chatData.map((userItem) => {
                         return (
                             <>
                                 {
                                     userItem.id == 1 ?
-                                    <View style={styles.thisSideUserMessages}>
-                                          <Text style={styles.message}>{userItem.message}</Text>
-                                          <Text  style={styles.timeStyle}>{userItem.time}</Text>
-                                    </View>
-                                    :
-                                    <View style= {styles.otherSideUserMessages}>
-                                        <Text style={styles.message}>{userItem.message}</Text>
-                                        <Text style={styles.timeStyle}>{userItem.time}</Text>
-                                    </View>
+                                       <ThisSideUserMessages message={userItem.message} time={userItem.time}></ThisSideUserMessages>
+                                        :
+                                       <OtherSideUserMessages message={userItem.message} time={userItem.time}></OtherSideUserMessages>
                                 }
                             </>
-                            // <View style={[styles.commonStyleMessage, userItem.id == 1 ? styles.thisSideUserMessages :styles.otherSideUserMessages]}>
-                            //     <Text>{userItem.message}</Text>
-                            //     <Text>{userItem.time}</Text>
-                            // </View>
                         )
                     })
                 }
 
-                <View style={styles.otherSideUser}>
-                    <Text> hello user 2</Text>
-                </View>
             </ScrollView>
         </ImageBackground>
     )
@@ -50,40 +63,61 @@ const styles = StyleSheet.create({
     },
     scrollViewContainer: {
         flex: 1,
+        // padding: 10,
     },
-    thisSideUserMessages: {
+    thisSideMessagesOuterContainer: {
+        // backgroundColor: "red",
         display: "flex",
         flexDirection: "row",
-        margin: 10,
         justifyContent: "flex-end",
-        maxWidth:"80%",
-        backgroundColor:colors.teal,
-        alignSelf:"flex-end",
-        flexWrap:"wrap",
-        padding:8,
-        borderRadius:20,
-        borderTopRightRadius:0,
+        // marginVertical:5
     },
-    otherSideUserMessages: {
+    otherSideMessagesOuterContainer: {
+        // backgroundColor: "green",
         display: "flex",
         flexDirection: "row",
-        margin: 10,
-        maxWidth:"80%",
-        backgroundColor:colors.charcoal,
-        flexWrap:"wrap",
-        padding:8,
-        borderRadius:20,
-        borderTopLeftRadius:0,
+        justifyContent: "flex-start",
+        // marginVertical:5
     },
-    message:{
-        color:colors.white,
-        fontSize:16
+    thisSideMessagesInnerContainer: {
+        backgroundColor: colors.teal,
+        display: "flex",
+        flexDirection: "row",
+        margin: 5,
+        padding: 15,
+        borderRadius: 20,
+        borderTopRightRadius: 0,
+        maxWidth: "80%",
+        flexWrap: "wrap",
+        justifyContent: "flex-end",
+        alignItems: "baseline",
+        gap: 10
     },
-    timeStyle:{
-        color:colors.white,
-        textAlign:"right",
-        alignSelf:"flex-end",
-        textAlignVertical:"bottom",
-        fontSize:12
+    otherSideMessagesInnerContainer: {
+        backgroundColor: colors.charcoal,
+        display: "flex",
+        flexDirection: "row",
+        padding: 15,
+        margin: 5,
+        borderRadius: 20,
+        borderTopLeftRadius: 0,
+        maxWidth: "80%",
+        flexWrap: "wrap",
+        justifyContent: "flex-start",
+        alignItems: "baseline",
+        gap: 10
+    },
+    message: {
+        fontSize: 18,
+        // backgroundColor: "orange",
+        display: "flex",
+        color: colors.white
+    },
+    timeStyle: {
+        fontSize: 12,
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+        textAlign: "right",
+        color: colors.white,
     }
 })
