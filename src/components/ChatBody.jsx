@@ -1,18 +1,19 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import chatData from '../data/chatData'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import colors from '../utils/colors'
+import VectorIcons from '../utils/VectorIcons'
 
 const ChatBody = () => {
+    const scrollRef = useRef(null)
 
     const ThisSideUserMessages = ({message, time}) => {
 
         return (
             <View style={styles.thisSideMessagesOuterContainer}>
                 <View style={styles.thisSideMessagesInnerContainer}>
-
                     <Text style={styles.message}>{message}</Text>
                     <Text style={styles.timeStyle}>{time}</Text>
                 </View>
@@ -32,25 +33,35 @@ const ChatBody = () => {
         )
     }
 
+    const scrollToBottom =()=>{
+        scrollRef.current.scrollToEnd({ animated: true });
+    }
+
     return (
         <ImageBackground source={require("../assets/wallpaper.jpeg")} style={styles.imageBackground} >
-            <ScrollView style={styles.scrollViewContainer} contentContainerStyle={{padding:10}}>
+            <ScrollView style={styles.scrollViewContainer} 
+            contentContainerStyle={{padding:10}} 
+            onContentSizeChange={scrollToBottom}
+            ref = {scrollRef}
+            >
                 {
-                    chatData.map((userItem) => {
+                    chatData.map((userItem, index) => {
                         return (
-                            <>
+                            <View key = {index}>
                                 {
                                     userItem.id == 1 ?
-                                       <ThisSideUserMessages message={userItem.message} time={userItem.time}></ThisSideUserMessages>
+                                       <ThisSideUserMessages  message={userItem.message} time={userItem.time}></ThisSideUserMessages>
                                         :
                                        <OtherSideUserMessages message={userItem.message} time={userItem.time}></OtherSideUserMessages>
                                 }
-                            </>
+                            </View>
                         )
                     })
                 }
-
             </ScrollView>
+            <View style={styles.scrollToBottom}>
+                <VectorIcons type={"FontAwesome"} name='angle-double-down' onPress={scrollToBottom}  size={30} color = {colors.white} ></VectorIcons>
+            </View>
         </ImageBackground>
     )
 }
@@ -119,5 +130,18 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         textAlign: "right",
         color: colors.white,
-    }
+    },
+    scrollToBottom:{
+        height:50,
+        width:50,
+        backgroundColor:colors.charcoal,
+        position:"absolute",
+        bottom:20,
+        right:20,
+        borderRadius:40,
+        display:'flex',
+        justifyContent:"center",
+        alignItems:"center"
+    },
+
 })
