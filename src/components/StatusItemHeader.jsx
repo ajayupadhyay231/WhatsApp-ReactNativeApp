@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const StatusItemHeader = ({showModal, setShowModal}) => {
+const StatusItemHeader = ({showModal, setShowModal, item}) => {
     useEffect(()=>{
     //    const timeoutId = setTimeout(()=>{
     //         setShowModal(false)
@@ -27,8 +27,8 @@ const StatusItemHeader = ({showModal, setShowModal}) => {
      <View style={styles.mainContainer}>
         <View style={styles.leftContainer}>
             <VectorIcons type={"Ionicons"} name={"arrow-back"} color={colors.white} onPress={handleBackPressClicked}></VectorIcons>
-            <Image source={require("../assets/user1.jpeg")} style={styles.imageContainer}></Image>
-            <Text style={{color:colors.white, fontSize:18,}}>name1</Text>
+            <Image source={item.imageSource} style={styles.imageContainer}></Image>
+            <Text style={{color:colors.white, fontSize:18,}}>{item.name}</Text>
         </View>
         <View style={styles.rightContainer}>
         {/* <VectorIcons type={"FontAwesome"} name={"video-camera"} color={colors.white} size={20}></VectorIcons> */}

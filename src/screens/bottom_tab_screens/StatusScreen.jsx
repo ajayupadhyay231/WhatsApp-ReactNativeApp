@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import StatusHeader from '../../components/StatusHeader'
 import RecentUpades from '../../components/RecentUpdates'
 import ViewedUpdatesList from '../../components/ViewedUpdatesList'
+import colors from '../../utils/colors'
 
 const StatusScreen = () => {
   return (
@@ -19,6 +20,7 @@ export default StatusScreen
 
 const styles = StyleSheet.create({
   contentContainerStyle:{
-    // padding:10
+    backgroundColor:colors.darkCharcol,
+    flexGrow:1
   }
 })

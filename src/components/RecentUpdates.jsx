@@ -11,8 +11,12 @@ const RecentUpades = () => {
 
     const [showModal, setShowModal] = useState(false)
 
-    const handleRecentUpdateItemClick = () => {
+    const [item, setItem] = useState(null) ;
+
+    const handleRecentUpdateItemClick = (item) => {
         try {
+            setItem(item);
+            // console.log("item", item)
             setShowModal(true);
         } catch (err) {
             console.log("error in handleRecentUpdateItemClick", err)
@@ -24,7 +28,7 @@ const RecentUpades = () => {
             {
                 recentUpdatesList.map((item) => {
                     return (
-                        <TouchableOpacity key={item.id} onPress={handleRecentUpdateItemClick}>
+                        <TouchableOpacity key={item.id} onPress={()=>{handleRecentUpdateItemClick(item)}}>
                             <View  style={styles.recentUpdateItem}>
                                 <Image source={item.imageSource} style={styles.userImage}></Image>
                                 <View style={styles.statusTextContainer}>
@@ -36,14 +40,14 @@ const RecentUpades = () => {
                     )
                 })
             }
-            {
+            { item &&
                 <FullScreenModal showModal={showModal} setShowModal={setShowModal} >
                     <View style={styles.modalMainContainer}>
                         <ProgressBar setShowModal={setShowModal}></ProgressBar>
-                        <StatusItemHeader showModal={showModal} setShowModal={setShowModal} ></StatusItemHeader>
-                        <Image source={require("../assets/status2.jpeg")} style={styles.statusImage}></Image>
+                        <StatusItemHeader showModal={showModal} setShowModal={setShowModal} item = {item} ></StatusItemHeader>
+                        <Image source={item.statusImg} style={styles.statusImage}></Image>
                         <View style={styles.statusFooter}>
-                            <Text style={styles.statusCaption}> Happy birthday satyam</Text>
+                            <Text style={styles.statusCaption}>{item.statusCaption}</Text>
                             <VectorIcons type='AntDesign' name='up' color={colors.white}></VectorIcons>
                             <Text style={{ color: colors.white, margin: 5 }}>Reply</Text>
                         </View>
