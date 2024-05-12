@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity} from 'react-native';
 
 
-const ModalComponent = ({ showModal, setShowModal, children }) => {
+const FullScreenModal = ({ showModal, setShowModal, children }) => {
 
 //   const [modalVisible, setModalVisible] = useState(false);
 
@@ -16,9 +16,9 @@ const ModalComponent = ({ showModal, setShowModal, children }) => {
         //   setShowModal(!showModal);
         // }}
         >
-          <TouchableOpacity onPress={()=>{setShowModal(!showModal)}}> 
+          {/* <TouchableOpacity onPress={()=>{setShowModal(!showModal)}}>  */}
            {children}
-          </TouchableOpacity>
+          {/* </TouchableOpacity> */}
       </Modal>
   );
 };
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default ModalComponent;
+export default FullScreenModal;

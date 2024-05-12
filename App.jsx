@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import React from 'react'
 import BottomTabsScreen from './src/screens/stack_screens/BottomTabsScreen'
 import colors from './src/utils/colors'
@@ -13,6 +13,8 @@ const Stack = createStackNavigator()
 
 const App = () => {
   return (
+    <>
+    <StatusBar backgroundColor={colors.charcoal} />
     <NavigationContainer >
       <Stack.Navigator
       screenOptions={{
@@ -26,6 +28,7 @@ const App = () => {
       </View> */}
       </Stack.Navigator>
     </NavigationContainer>
+    </>
   )
 }
 
