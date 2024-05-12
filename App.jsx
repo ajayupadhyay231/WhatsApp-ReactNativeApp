@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import ChatScreen from './src/screens/stack_screens/ChatScreen';
+import ContactsListScreen from './src/screens/stack_screens/ContactsListScreen';
 
 
 
@@ -22,6 +23,7 @@ const App = () => {
       }}>
         <Stack.Screen name = "BottomTabsScreen" component={BottomTabsScreen}></Stack.Screen>
         <Stack.Screen name="ChatScreen" component={ChatScreen}></Stack.Screen>
+        <Stack.Screen name="ContactsListScreen" component={ContactsListScreen}></Stack.Screen>
 
       {/* <View style={styles.mainContainer} >
         <BottomTabsScreen></BottomTabsScreen>

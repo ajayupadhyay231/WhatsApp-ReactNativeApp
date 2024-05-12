@@ -15,46 +15,57 @@ const ChatsListScreen = () => {
     navigation.navigate("ChatScreen")
   }
 
-  
-  return (
-    <View style={styles.mainContainer}>
+  const handleMessageIconClick = () => {
+    try {
+      navigation.navigate("ContactsListScreen")
+    }
+    catch (err) {
+      console.log("errr in handleMessageIconClick err:", err)
+
+    }
+  }
+
+
+
+return (
+  <View style={styles.mainContainer}>
     <ScrollView style={styles.chatListContainer}>
       {
-        chatsListData.map((chatDataItem)=>{
-          return(
-            <TouchableOpacity  key={chatDataItem.id} onPress={handleChatListItemClick}>
-                          <ChatListItem chatMute={chatDataItem.chatMute} key={chatDataItem.id} name={chatDataItem.name} lastMessage={chatDataItem.lastMessage} time={chatDataItem.time} imageSource={chatDataItem.imageSource} ></ChatListItem>
+        chatsListData.map((chatDataItem) => {
+          return (
+            <TouchableOpacity key={chatDataItem.id} onPress={handleChatListItemClick}>
+              <ChatListItem chatMute={chatDataItem.chatMute} key={chatDataItem.id} name={chatDataItem.name} lastMessage={chatDataItem.lastMessage} time={chatDataItem.time} imageSource={chatDataItem.imageSource} ></ChatListItem>
             </TouchableOpacity>
           )
         })
       }
     </ScrollView>
-      <View style ={styles.chatIcon}>
-        <VectorIcons type={"MaterialCommunityIcons"} name={"message-reply-text"} size={30} color={colors.white}></VectorIcons>
-      </View>
+    <View style={styles.chatIcon}>
+      <VectorIcons type={"MaterialCommunityIcons"} name={"message-reply-text"} size={30} color={colors.white} onPress={handleMessageIconClick}></VectorIcons>
     </View>
-  )
+  </View>
+)
 }
 
 export default ChatsListScreen
 
 const styles = StyleSheet.create({
-  mainContainer:{
-    flex:1,
-    position:"relative"
+  mainContainer: {
+    flex: 1,
+    position: "relative"
   },
-  chatListContainer:{
-    flex:1,
+  chatListContainer: {
+    flex: 1,
   },
-  chatIcon:{
+  chatIcon: {
     position: 'absolute',
     bottom: 20,
     right: 20,
     height: 60,
     width: 60,
     backgroundColor: colors.buttonGreen,
-    borderRadius:40,
-    justifyContent:'center',
-    alignItems:"center"
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: "center"
   }
 })
