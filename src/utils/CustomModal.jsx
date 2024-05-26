@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity} from 'react-native';
 
 
-const FullScreenModal = ({ showModal, setShowModal, children }) => {
+const CustomModal = ({ showModal, setShowModal, children}) => {
 
 //   const [modalVisible, setModalVisible] = useState(false);
 
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default FullScreenModal;
+export default CustomModal;

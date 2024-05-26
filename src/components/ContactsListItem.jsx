@@ -5,7 +5,7 @@ import colors from '../utils/colors'
 const ContactsListItem = ({name = "noname", userImgSrc}) => {
   return (
     <View style={styles.mainContainer}>
-            <Image source={userImgSrc} style={styles.imageContainer}></Image>
+            <Image source={ userImgSrc ? {uri : userImgSrc} : require("../assets/blank-profile-picture.png")} style={styles.imageContainer}></Image>
             <Text style={{fontSize:16, color:colors.white}}>{name}</Text>
     </View>
   )
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
         gap:15
     },
     imageContainer:{
+        backgroundColor:colors.Gray,
         resizeMode:"cover",
         height:40,
         width:40,

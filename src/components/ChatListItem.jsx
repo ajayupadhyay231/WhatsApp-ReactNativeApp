@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         marginLeft: 12
     },
     imageContainer: {
+        backgroundColor:colors.Gray,
         resizeMode: "cover",
         height: 40,
         width: 40,

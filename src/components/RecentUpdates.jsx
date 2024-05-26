@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import colors from '../utils/colors'
 import VectorIcons from '../utils/VectorIcons'
 import recentUpdatesList from "../data/recentUpdatesList"
-import FullScreenModal from '../utils/FullScreenModal'
+import CustomModal from '../utils/CustomModal'
 import StatusItemHeader from './StatusItemHeader'
 import ProgressBar from './ProgressBar'
 
@@ -41,7 +41,7 @@ const RecentUpades = () => {
                 })
             }
             { item &&
-                <FullScreenModal showModal={showModal} setShowModal={setShowModal} >
+                <CustomModal showModal={showModal} setShowModal={setShowModal} >
                     <View style={styles.modalMainContainer}>
                         <ProgressBar setShowModal={setShowModal}></ProgressBar>
                         <StatusItemHeader showModal={showModal} setShowModal={setShowModal} item = {item} ></StatusItemHeader>
@@ -52,7 +52,7 @@ const RecentUpades = () => {
                             <Text style={{ color: colors.white, margin: 5 }}>Reply</Text>
                         </View>
                     </View>
-                </FullScreenModal>
+                </CustomModal>
             }
         </View>
     )
